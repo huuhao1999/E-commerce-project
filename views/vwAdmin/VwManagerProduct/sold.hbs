@@ -1,0 +1,128 @@
+<style>
+  .rate-popover{
+  color: #c4c4c4;
+}
+.live{
+  color: black;
+}
+</style>
+<header>
+  <!-- Navbar -->
+  {{>home/header}}
+</header>
+<main>
+<!-- Editable table -->
+
+<div class="card">
+  <div class="card-header text-center font-weight-bold text-uppercase py-4">.</div>
+  <div class="card-header text-center font-weight-bold text-uppercase py-4">Products of {{authUser.f_Name}}</div>
+  <div class="card-body">
+      <span class="table-add float-right mb-3 mr-2"><a href="/seller/sale-register" class="text-success">
+        <i class="fas fa-plus-circle fa-2x"></i></a></span>
+      <span class="table-add float-right mb-3 mr-2"><a href="/seller/myProducts/Selling" class="text-success">
+            <i class="fas fa-clock fa-2x"></i></a></span>
+      <span class="table-add float-right mb-3 mr-2"><a href="/seller/myProducts/Sold" class="text-success">
+            <i class="fas fa-check-circle fa-2x"></i></a></span>
+      <span class="table-add float-right mb-3 mr-2"><a href="/seller/myProducts/All" class="text-success">
+            <i class="fas fa-globe-africa fa-2x"></i></a></span>   
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <thead>
+          <tr>
+            <th class="text-center">Product ID</th>
+            <th class="text-center">Product Name</th>
+            <th class="text-center">User ID</th>
+            <th class="text-center">User Name</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">React</th>
+          </tr>
+        </thead>
+        {{#each Table}}
+        <tbody>
+          <tr id='T{{ProID}}'>
+            <td class="pt-3-half" >{{ProID}}</td>
+            <td class="pt-3-half" >{{ProName}}</td>
+            <td class="pt-3-half" >{{UserID}}</td>
+            <td class="pt-3-half" >{{UserName}}</td>
+            <td class="pt-3-half" >{{Sold}}</td>
+            <td>
+              <span id="like{{UserID}}">
+                <i class="far fa-thumbs-up blue-text fa-2x"data-toggle="modal" data-target="#modalCart{{ProID}}" onclick="LEditDes({{ProID}})"></button></i>
+              </span>
+              <span id="dislike{{UserID}}">
+                <i class="far fa-thumbs-down fa-2x"data-toggle="modal" data-target="#modalCart{{ProID}}" onclick="DLEditDes({{ProID}})"></button></i>
+              </span>
+            </td>
+          </tr>
+          <form action="/seller/myProducts/Sold/Review", method="POST">
+            <div class="modal fade" id="modalCart{{ProID}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <!--Header-->
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">{{UserName}}</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <!--Body-->
+                  <div class="modal-body">
+                    <input type="hidden" name="UserID" value={{UserID}}>
+                    <input type="hidden" id='R{{ProID}}' name="Rate">
+                    <textarea class="form-control md-textarea" id="editor{{ProID}}" name="reviewUser" rows="5">{{FullDes}}</textarea>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" data-toggle="modal" data-target="#modalCart{{ProID}}"class="btn btn-blue btn-rounded btn-sm my-0" >Commit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- This is our clonable table line -->
+        </tbody>
+        {{/each}}
+      </table>
+    </div>
+  </div>
+
+</div>
+<!-- Editable table -->
+</main>
+<footer>
+  <i class="footer-bor" style="background:#acacac;opacity:.1;"></i>
+  <div id="footer" class="footer wow slideInUp backcolor back-footer animated"
+    style="background: rgb(236, 179, 90); visibility: visible; animation-name: slideInUp;">
+    {{>home/bottom}}
+  </div>
+  <!-- /footer -->
+  <script type="text/javascript">
+    var qq_left = "3",
+      qq_topbottom = 50;
+    $(".kefu_q3 .default").on("click", function () {
+      $(this).animate({
+        "right": -120 + '%'
+      }, 100);
+      $(".default-hide").animate({
+        "margin-right": 0
+      }, 300);
+    })
+    $(".colse").on("click", function () {
+      $(".default-hide").animate({
+        "margin-right": -120 + '%'
+      }, 100);
+      $(".kefu_q3 .default").animate({
+        "right": qq_left + 'px',
+        "bottom": qq_topbottom + 'px'
+      }, 300);
+    })
+  </script>
+</footer>
+<script>
+    function LEditDes(ProID)
+  {
+    $(`#R${ProID}`).val(1);
+  }
+     function DLEditDes(ProID)
+  {
+    $(`#R${ProID}`).val(-1);
+  }
+</script>

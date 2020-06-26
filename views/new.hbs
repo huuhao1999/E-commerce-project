@@ -1,0 +1,54 @@
+<script type="text/javascript" src="../../assets/js/ckeditor/ckeditor.js"></script>
+<header>
+    <!-- Navbar -->
+    {{>home/header}}
+</header>
+<body>
+    <div class="swiper-slide swiper-lazy swiper-lazy-loaded swiper-slide-active"
+                        style="height:1150px;
+                        background-image: url(&quot;../../images/2-1p313104h0534.jpg&quot);
+                        background-repeat: no-repeat;
+                        background-attachment: fixed;
+                        display: flex; justify-content: center;">
+        <div style="width: 50%;">
+            <form action="/sale-register2" method="POST" enctype = "multipart/form-data">
+                <div class="card">
+                    <!--Header-->
+                    <div class="header pt-3 peach-gradient">
+                        <div class="row d-flex justify-content-center">
+                            <h3 class="white-text font-weight-bold">SALE</h3>
+                        </div>
+                    </div>
+                    <div class="card-body mx-1 mt-1">
+                    <!--Body-->
+                    
+                    <div class="md-form">
+                        <div class="file-field">
+                            <div class="btn btn-primary btn-sm float-left">
+                                <span>Choose files</span>
+                                <input type="file" name="file_picture" >
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+                    <div class="row d-flex mb-4">
+                        <!--Grid column-->
+                        <div class="col-md-1 col-md-5 d-flex  ml-auto">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-grey btn-rounded z-depth-1a waves-effect waves-light">Send</button>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+       // CKEDITOR.replace('editor');
+	</script>
+</body>

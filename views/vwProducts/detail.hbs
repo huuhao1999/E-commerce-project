@@ -1,0 +1,263 @@
+<style>
+  .products img {
+    width: 100%;
+  }
+
+  @media(min-width: 960px) {
+    .products .col-md-2 .product-card {
+      width: auto;
+      height: 150px;
+    }
+
+    .products .col-md-2 .well {
+      height: 350px;
+    }
+
+    .products .col-md-2 .view {
+      width: 100%;
+      height: 150px;
+    }
+
+    .products .col-md-2 img {
+      width: auto;
+      height: 100%;
+
+    }
+  }
+
+
+  input:invalid+span:after {
+    content: '✖';
+    padding-left: 5px;
+  }
+
+  input:valid+span:after {
+    content: '✓';
+    padding-left: 5px;
+  }
+  #addtotal{
+    position:absolute;
+    right: 30px;
+  }
+</style>
+<!--header -->
+<div class="header" id="drop">
+  {{>home/header}}
+</div>
+<!-- /header -->
+<link rel="stylesheet" type="text/css" href="../../assets/css/index.css">
+<!--  body -->
+<div id="usezan-v7">
+  <link rel="stylesheet" href="../../assets/css/swiper.css">
+  <link rel="stylesheet" href="../../assets/css/animate.min.css">
+  <script src="../../assets/js/swiper.min.js"></script>
+  <script src="../../assets/js/swiper.animate1.0.2.min.js"></script>
+  <div class="container-fluid text-lg p-lg-5">
+    <div class="row py-2">
+      <div class="col-md-3 pl-5">
+        <div class="card h-100 shadow">
+          {{> home/side }}
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="container  py-5 z-depth-1">
+          <div class="row px-2">
+            <!--Section: Content-->
+            <section class="text-center">
+              <!-- Section heading -->
+              <p id="addtotal">{{totalentity}}</p>
+              <h3 class="font-weight-bold mb-5">{{title}}</h3>
+              
+              {{#each this.product}}
+                <div class="row">
+                  <div class="col-lg-6">
+                    <!--Carousel Wrapper-->
+                    <div id="carousel-thumb1" class="carousel slide carousel-fade carousel-thumbnails mb-5 pb-4"
+                      data-ride="carousel">
+                      <!--Slides-->
+                      <div class="carousel-inner text-center text-md-left" role="listbox">
+                        <div class="carousel-item active">
+                          <img src="../../../sp/{{ProID}}/1_1.jpg" alt="First slide" class="img-fluid">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="../../../sp/{{ProID}}/1_2.jpg" alt="Second slide" class="img-fluid">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="../../../sp/{{ProID}}/1_3.jpg" alt="Third slide" class="img-fluid">
+                        </div>
+                      </div>
+                      <!--/.Slides-->
+                      <!--Thumbnails-->
+                      <a class="carousel-control-prev" href="#carousel-thumb1" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carousel-thumb1" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                      <!--/.Thumbnails-->
+                    </div>
+                    <!--/.Carousel Wrapper-->
+                    <div class="row mb-4">
+                      <div class="col-md-12">
+                        <div id="mdb-lightbox-ui"></div>
+                        <div class="mdb-lightbox no-margin">
+                          <figure class="col-md-4">
+                            <a href="../../../sp/{{ProID}}/1_1.jpg" data-size="1600x1067">
+                              <img src="../../../sp/{{ProID}}/1_1.jpg" class="img-fluid">
+                            </a>
+                          </figure>
+                          <figure class="col-md-4">
+                            <a href="../../../sp/{{ProID}}/1_2.jpg" data-size="1600x1067">
+                              <img src="../../../sp/{{ProID}}/1_2.jpg" class="img-fluid">
+                            </a>
+                          </figure>
+                          <figure class="col-md-4">
+                            <a href="../../../sp/{{ProID}}/1_3.jpg" data-size="1600x1067">
+                              <img src="../../../sp/{{ProID}}/1_3.jpg" class="img-fluid">
+                            </a>
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 text-center text-md-left">
+                    <h2
+                      class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4">
+                      {{ProName}}</h2>
+                    {{!-- <span class="badge badge-danger product mb-4 ml-xl-0 ml-4">Sắp hết thời gian</span> --}}
+                    <span class="badge badge-success product mb-4 ml-2">SALE</span>
+                    <h3 class="h3-responsive text-center text-md-left mb-3 ml-xl-0 ml-4">
+                      <span id="PriceCurrent" class="red-text font-weight-bold "><i class="fas fa-dollar-sign"></i>
+                        <strong>{{Price}}</strong>
+                      </span>
+                      <span class="pl-2 grey-text">
+                        <small>
+                        </small>
+                      </span>
+                      <div class="card-data">
+                        <ul class="list-unstyled mb-1">
+                          <li class="comment-date font-small grey-text">
+ 
+                        </ul>
+                      </div>
+                    </h3>
+                    <div class="font-weight-normal">
+                      {{{FullDes}}}
+                      {{#if isAuthenticated}}
+                        <div class="row mt-3 mb-4">
+                         
+                                      <div class="clearfix">
+            <div class="price pull-left">
+              <a href="/add/{{ ProID }}" class="btn btn-default pull-right" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a>
+            </div>
+                        </div>
+                      {{else}}
+                        <form action="/account/login" method="get">
+                          <div class="row mt-3 mb-4">
+                            <div class="col-md-12 text-center text-md-left text-md-right d-flex justify-content-center">
+                              <button type="submit" class="btn btn-danger btn-rounded">
+                                <i class="fas mr-2 pr-2" aria-hidden="true"></i>Mua ngay</button>
+                            </div>
+                          </div>
+                        </form>
+                      {{/if}}
+                    </div>
+                  </div>
+                </div>
+              {{/each}}
+            </section>
+            <!--Section: Content-->
+          </div>
+          <div class="row py-2">
+            <div class="col-md-5 pl-5 pr-5">
+              <!--Section: Content-->
+              <section class="team-section text-center dark-grey-text">
+                <!-- Section heading -->
+              
+                <!-- Section description -->
+                <p class="text-center w-responsive mx-auto mb-5"></p>
+                <!--Grid row-->
+z
+                <!--Grid row-->
+              </section>
+              <!--Section: Content-->
+            </div>
+            <div class="col-md-6 ml-5">
+              <!--Section: Block Content-->
+              
+            </div>
+          </div>
+          <h3 class="font-weight-bold text-center dark-grey-text mb-5">Sản phẩm liên quan</h3>
+          <!-- Grid row -->
+          <div class="products px-4 row d-flex justify-content-between">
+            {{#each psRelative}}
+              <!-- Grid column -->
+              <div
+                class="product-card text-white col-md-2 m-2 pt-3 px-1 d-flex justify-content-center wow slideInUp card card-ecommerce">
+                <div id={{ProID}} class="well text-center d-flex flex-wrap flex-column justify-content-center ">
+                  <!--Card view-->
+                  <div onclick="getDetailProduct('{{ProID}}')" class="view overlay zoom d-flex justify-content-center">
+                    <img src="../../../sp/{{ProID}}/1.jpg" class="img-fluid" alt="zoom">
+                    <div class="mask flex-center waves-effect waves-light ">
+                      <p class="card-body text-white  rgba-black-strong p-2 align-self-end">
+                        {{ProName}}</p>
+                    </div>
+                  </div>
+                  <span class="badge badge-danger product ml-xl-0"></span>
+                  <!-- Card time -->
+                  <div class="rounded-top mdb-color lighten-3 text-center mt-3">
+
+                  </div>
+                  <!--Card content-->
+                  <div class="orange text-white rounded-bottom m-0">
+                    <ul class="list-unstyled list-inline font-small p-1 m-0">
+            
+                      <li>
+                        <ul class="list-unstyled list-inline font-small p-1 m-0 d-flex justify-content-between">
+                          <li class="list-inline-item pr-2 white-text"><i class="fas fa-dollar-sign pr-1"></i>{{Price}}
+                          </li>
+                          
+                          <li>
+                            <span class="card-footer float-right text-white p-0 mr-2"><a class="heart-icon"
+                                data-toggle="tooltip" data-placement="top" title="Added to Wishlist" data-id={{ProID}}
+                                data-name={{ProName}} data-price={{Price}}><i class="fas fa-heart"></i></a></span>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+          <!-- Grid row -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer -->
+  <i class="footer-bor" style="background:#acacac;opacity:.1;"></i>
+  <div id="footer" class="footer wow slideInUp backcolor back-footer animated"
+    style="background: rgb(236, 179, 90); visibility: visible; animation-name: slideInUp;">
+    {{>home/bottom}}
+  </div>
+  <!-- /footer -->
+</div>
+<!--  /body -->
+<!-- <script src="../../assets/js/online.js"></script> -->
+<!-- SCRIPTS -->
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="../../assets/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="../../assets/js/mdb.js"></script>
+<script>
+  // MDB Lightbox Init
+  $(function () {
+    $("#mdb-lightbox-ui").load("../../assets/mdb-addons/mdb-lightbox-ui.html");
+  });
+
+</script>

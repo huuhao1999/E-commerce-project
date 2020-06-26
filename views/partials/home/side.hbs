@@ -1,0 +1,12 @@
+<div class="card-header text-white amber darken-1">Phân loại sản phẩm</div>
+<div class="list-group list-group-flush">
+    {{#each lcCategories}}
+        <a href="/cat/{{CatID}}/products"
+            class="list-group-item list-group-item-action  {{#if isActive}}active amber lighten-2 {{/if}}">
+            {{CatName}}
+            {{#if num_of_products}}
+                <span class="badge badge-danger float-right">{{num_of_products}}</span>
+            {{/if}}
+        </a>
+    {{/each}}
+</div>

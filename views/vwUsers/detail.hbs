@@ -1,0 +1,40 @@
+<div class="container p-5 d-flex flex-wrap flex-column">
+  <div class="row p-5 d-flex justify-content-center">
+    <h2>Thông tin chi tiết</h2>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <!-- Card -->
+    <div class="card testimonial-card">
+      <!-- Background color -->
+      <div class="card-up winter-neva-gradient lighten-1"></div>
+      <!-- Avatar -->
+      <div class="avatar mx-auto white">
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle"
+          alt="woman avatar">
+      </div>
+      <!-- Content -->
+      <div class="card-body">
+        {{#each user}}
+          <!-- Name -->
+          <h4 class="card-title">{{f_Name}}</h4>
+          <hr>
+          <!-- Quotation -->
+          <div class="d-flex flex-column align-items-start">
+            <p><i class="fas fa-user ml-2"></i> {{f_Username}}</p>
+            <p><i class="fas fa-envelope ml-2"></i> {{f_Email}}</p>
+            <p><i class="fas fa-birthday-cake ml-2"></i> {{f_DOB}}</p>
+            <p><i class="fas fa-mobile-alt ml-2"></i>+{{f_phone}}</p>
+            <p><i class="fas fa-map-marked-alt ml-2"></i>{{f_address}}</p>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    <!-- Card -->
+  </div>
+  <div class="row d-flex justify-content-center">
+    <form action="/admin/users">
+      <input class="btn aqua-gradient btn-rounded" type="submit" value="Trở
+      về" />
+    </form>
+  </div>
+</div>

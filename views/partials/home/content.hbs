@@ -1,0 +1,527 @@
+{{#if isAuthenticated}}
+<style>
+    #products img {
+        width: 100%;
+    }
+
+    @media(min-width: 960px) {
+        #products .col-md .product-card {
+            width: auto;
+            height: 150px;
+        }
+
+        #products .col-md .well {
+            height: 350px;
+        }
+
+        #products .col-md .view {
+            width: 100%;
+
+        }
+
+        #products .col-md img {
+            width: auto;
+            height: 100%;
+
+        }
+    }
+
+    .orange {
+        text-align: center;
+    }
+</style>
+<div class="index-module productv2" style="background:#f9f9f9">
+    <!-- 作品、案例、产品 -->
+    <div class="backcolor workv4a ">
+        <div class="workv4-h">
+            <div class="clear" style="height:60px;"></div>
+            {{!-- Top 5 sản phẩm sắp kết thúc --}}
+            <div class="index_title text-center pb30 wow slideInUp">
+                <h3 class="f30">Khóa Học của chúng tôi</h3> <span class="i-back"></span>
+            </div>
+            <div class="container  text-black-50  ">
+                <div id="products" class="row text-dark">
+                    {{#each pro5}}
+                    <div class="product-card text-white col-md mx-2 pt-3 px-1 d-flex justify-content-center wow slideInUp card card-ecommerce"
+                        data-wow-delay=".4s">
+                        <div id={{ProID}} class="well text-center d-flex flex-column justify-content-center">
+                            <!--Card view-->
+                            <div onclick="getDetailProduct('{{ProID}}')"
+                                class="view overlay zoom d-flex justify-content-center">
+                                <img src="../../../sp/{{ProID}}/1.jpg" class="img-fluid" alt="zoom">
+                                <div class="mask flex-center waves-effect waves-light ">
+                                    <p class="card-body text-white  rgba-black-strong p-2 align-self-end">
+                                        {{ProName}}</p>
+                                </div>
+                            </div>
+                            <span class="badge badge-danger product ml-xl-0">Sản phẩm ưu đãi</span>
+                            <!-- Card time -->
+                            <div class="rounded-top mdb-color lighten-3 text-center mt-3">
+
+
+                            </div>
+                            <!--Card content-->
+                            <div class="orange text-white rounded-bottom m-0">
+                                <ul class="list-unstyled list-inline font-small p-1 m-0">
+                                    <li>
+                                        <ul
+                                            class="list-unstyled list-inline font-small p-1 m-0 d-flex justify-content-between">
+                                            <li class="list-inline-item pr-2 white-text font-weight-bold"><i
+                                                    class="fas  pr-1"></i><strong>Giá: {{Price}}</strong>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul
+                                            class="list-unstyled list-inline font-small p-1 m-0 d-flex justify-content-between">
+
+                                            <span class="card-footer float-right text-white p-0 mr-2">
+                                                <a data-toggle="tooltip" data-placement="top" data-id={{ProID}}
+                                                    data-name={{ProName}} data-price={{Price}}>
+                                                </a>
+                                            </span>
+                                    </li>
+                                </ul>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{!-- Top 5 sản phẩm có nhiều lượt ra giá nhất --}}
+            <div class="index_title text-center pb30 wow slideInUp pt-5">
+                <h3 class="f30">Sự uy tín</h3> <span class="i-back"></span>
+            </div>
+            <div class="container text-black-50">
+                <div id="products" class="row text-dark">
+                    {{#each pro10}}
+                    <div class="product-card text-white col-md mx-2 pt-3 px-1 d-flex justify-content-center wow slideInUp card card-ecommerce"
+                        data-wow-delay=".4s">
+                        <div id={{ProID}} class="well text-center d-flex flex-column justify-content-center">
+                            <!--Card view-->
+                            <div onclick="getDetailProduct('{{ProID}}')"
+                                class="view overlay zoom d-flex justify-content-center">
+                                <img src="../../../sp/{{ProID}}/1.jpg" class="img-fluid" alt="zoom">
+                                <div class="mask flex-center waves-effect waves-light ">
+                                    <p class="card-body text-white  rgba-black-strong p-2 align-self-end">
+                                        {{ProName}}</p>
+                                </div>
+                            </div>
+                            <!-- Card time -->
+
+                            <!--Card content-->
+                            <div class="orange text-white rounded-bottom m-0">
+                                <ul class="list-unstyled list-inline font-small p-1 m-0">
+                                    <li>
+                                        <ul
+                                            class="list-unstyled list-inline font-small p-1 m-0 d-flex justify-content-between">
+                                            <li class=" pr-2 white-text font-weight-bold"><i
+                                                    class="fas pr-1"></i><strong>Giá: {{Price}}</strong>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul <li>
+                                            <span class="card-footer float-right text-white p-0 mr-2">
+                                                <a class="heart-icon" data-toggle="tooltip" data-placement="top"
+                                                    title="Added to Wishlist" data-id={{ProID}} data-name={{ProName}}
+                                                    data-price={{Price}}><i></i></a>
+                                            </span>
+                                    </li>
+                                </ul>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{!-- Top 5 sản phẩm có giá cao nhất --}}
+            <div class="index_title text-center pb30 wow slideInUp pt-5">
+                <h3 class="f30">Sự hài lòng</h3> <span class="i-back"></span>
+            </div>
+            <div class="container text-black-50 pb-5">
+                <div id="products" class="row text-dark">
+                    {{#each pro15}}
+                    <div class="product-card text-white col-md mx-2 pt-3 px-1 d-flex justify-content-center wow slideInUp card card-ecommerce"
+                        data-wow-delay=".4s">
+                        <div id={{ProID}} class="well text-center d-flex flex-column justify-content-center">
+                            <!--Card view-->
+                            <div onclick="getDetailProduct('{{ProID}}')"
+                                class="view overlay zoom d-flex justify-content-center">
+                                <img src="../../../sp/{{ProID}}/1.jpg" class="img-fluid" alt="zoom">
+                                <div class="mask flex-center waves-effect waves-light ">
+                                    <p class="card-body text-white  rgba-black-strong p-2 align-self-end">
+                                        {{ProName}}</p>
+                                </div>
+                            </div>
+                            <!-- Card time -->
+                            <div class="rounded-top mdb-color lighten-3 text-center mt-3">
+
+                            </div>
+                            <!--Card content-->
+                            <div class="orange text-white rounded-bottom m-0">
+                                <ul class="list-unstyled list-inline font-small p-1 m-0">
+                                    <li>
+                                        <ul
+                                            class="list-unstyled list-inline font-small p-1 m-0 d-flex justify-content-between">
+                                            <li class="list-inline-item pr-2 white-text font-weight-bold"><i
+                                                    class="fas   pr-1"></i><strong>Giá: {{Price}}</strong>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul <li>
+                                            <span class="card-footer float-right text-white p-0 mr-2">
+                                                <a class="heart-icon" data-toggle="tooltip" data-placement="top"
+                                                    title="Added to Wishlist" data-id={{ProID}} data-name={{ProName}}
+                                                    data-price={{Price}}>
+                                                </a>
+                                            </span>
+                                    </li>
+                                </ul>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{else}}
+{{#section 'css'}}
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet'
+        type='text/css'>
+    <link href="../../public_1/css/font-awesome.min.css" rel="stylesheet">
+    {{!-- error --}}
+    <link href="../../public_1/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="../../public_1/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="../../public_1/css/flexslider.css" rel="stylesheet">
+    <link href="../../public_1/css/templatemo-style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../public_1/css/editCSS.css">
+{{/section}}
+
+
+<body class="tm-gray-bg">
+    {{!-- {{{body}}}	 --}}
+    <!-- Banner -->
+    <section class="tm-banner">
+        <!-- Flexslider -->
+        <div class="flexslider flexslider-banner">
+            <ul class="slides">
+                <li>
+                    <div class="tm-banner-inner">
+                        <h1 class="tm-banner-title">Find <span class="tm-yellow-text">The Best</span> Place</h1>
+                        <p class="tm-banner-subtitle">For Your Learning</p>
+                        <a href="#more" class="tm-banner-link">Learn More</a>
+                    </div>
+                    <img src="../../public_1/img/banner-1.jpg" alt="Image" />
+                </li>
+                <li>
+                    <div class="tm-banner-inner">
+                        <h1 class="tm-banner-title">Fast <span class="tm-yellow-text">And</span> Convenient</h1>
+                        <p class="tm-banner-subtitle">Study Everywhere</p>
+                        <a href="#more" class="tm-banner-link">Learn More</a>
+                    </div>
+                    <img src="../../public_1/img/banner-2.jpg" alt="Image" />
+                </li>
+                <li>
+                    <div class="tm-banner-inner">
+                        <h1 class="tm-banner-title">with <span class="tm-yellow-text">many</span> experts</h1>
+                        <p class="tm-banner-subtitle">experienced</p>
+                        <a href="#more" class="tm-banner-link">Learn More</a>
+                    </div>
+                    <img src="../../public_1/img/banner-3.jpg" alt="Image" />
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- gray bg -->
+    <section class="container tm-home-section-1" id="more">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 ">
+                <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center ">
+                    <img src="../../public_1/img/index-01.jpg" alt="image" class="img-responsive shadow">
+                    <a href="#">
+                        <div class="tm-green-gradient-bg tm-city-price-container ">
+                            <span>Tìm kiếm dễ dàng khóa học</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
+                    <img src="../../public_1/img/index-02.jpg" alt="image" class="img-responsive shadow">
+                    <a href="#">
+                        <div class="tm-yellow-gradient-bg tm-city-price-container">
+                            <span>Tiết kiệm chi phí</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
+                    <img src="../../public_1/img/index-03.jpg" alt="image" class="img-responsive shadow">
+                    <a href="#">
+                        <div class="tm-red-gradient-bg tm-city-price-container">
+                            <span>Phương pháp hiện đại</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{!-- Learn today --}}
+        <div class="section-margin-top">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="unica-learn-today">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <hr>
+                        <br><br>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <h2 class="tm-section-title">Hôm nay bạn muốn học gì?</h2>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <hr>
+                    </div>
+                    <ul class="unica-lt-box">
+                        <li>
+                            <a href="/cat/1/products" class="u-tags-mini" >
+                                <p> <i class="fa fa fa-language" aria-hidden="true"></i> Ngoại ngữ</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/cat/2/products" class="u-tags-mini">
+                                <p> <i class="fa fa fa-code" aria-hidden="true"></i> Lập trình</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/cat/3/products" class="u-tags-mini">
+                                <p> <i class="fas fa-comments" aria-hidden="true"></i> Giao tiếp</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/cat/5/products" class="u-tags-mini">
+                                <p> <i class="fa fa fa-paint-brush" aria-hidden="true"></i> Thiết kế</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/cat/4/products" class="u-tags-mini">
+                                <p> <i class="fa fa fa-shopping-cart" aria-hidden="true"></i> Bán hàng</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/cat/6/products" class="u-tags-mini">
+                                <p> <i class="fa fa fa-lightbulb-o" aria-hidden="true"></i> Phong cách sống</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/cat/7/products" class="u-tags-mini">
+                                <p> <i class="fa fa fa-rocket" aria-hidden="true"></i> Khác</p>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="section-margin-top">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <hr>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <h2 class="tm-section-title">Các khóa học phổ biến</h2>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <br> </br>
+            <div class="row" >
+                {{#each ListProd}}
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12 view overlay zoom d-flex justify-content-center"   onclick="getDetailProduct('{{ProID}}')">
+                    <div class="tm-home-box-2 shadow ">
+                        <img src="../../public_1/sp/{{this.ProID}}/1.jpg" alt="image" class="img-responsive shadow" style="height: 250px;">
+                        <h3 style="height: 60px;color:cornflowerblue ; font-size: 15px; font-weight:bold">{{this.ProName}}</h3>
+                        {{!-- font-size: 20px; --}}
+                        <div style=" height: 60px" class="tinydes">{{this.TinyDes}}</div>
+                        <p class="tm-date"><a href='account/login' alt="Login" style="color:#c3c3c3"> Login to learn more </a></p>
+                        <div class="tm-home-box-2-container">
+                            <a href='account/login' alt="Login" class="tm-home-box-2-link"><i
+                                    class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+                            <a href="#" class="tm-home-box-2-link"><span
+                                    class="tm-home-box-2-description">{{this.Price}} VND</span></a>
+                            <a href='account/login' alt="Login" class="tm-home-box-2-link"><i
+                                    class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+    </section>
+
+    <!-- white bg -->
+    <section class="tm-white-bg section-padding-bottom">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-12 pdm-No">
+                <div class="unica-reason ">
+                    <h4>Tại sao bạn nên học cùng chúng tôi?</h4>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 pdm-No ">
+                        <div class="reason-4">
+                            <div class="img-reason"><img class="img-responsive lazy" src="../../public_1/img/unica1.png" alt=""></div>
+                            <div class="txt-reason "> Học trực tuyến
+                                <span>mọi lúc, mọi nơi</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 pdm-No">
+                        <div class="reason-4">
+                            <div class="img-reason"><img class="img-responsive lazy" src="../../public_1/img/unica2.png" alt=""></div>
+                            <div class="txt-reason"> Hoàn tiền
+                                <span>nếu không hài lòng</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 pdm-No">
+                        <div class="reason-4">
+                            <div class="img-reason"><img class="img-responsive lazy" src="../../public_1/img/unica3.png" alt=""></div>
+                            <div class="txt-reason"> Thanh toán 1 lần
+                                <span>học mãi mãi</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 pdm-No">
+                        <div class="reason-4">
+                            <div class="img-reason"><img class="img-responsive lazy" src="../../public_1/img/unica4.png" alt=""></div>
+                            <div class="txt-reason"> Giao miễn phí
+                                <span>khóa học tới tận nhà</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </section>
+    <br></br/>
+    <div class = "row">
+            <br> </br>
+            <div class="col-md-12">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <hr>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <h2 class="tm-section-title">BẠN CÓ MUỐN NHẬN THÊM THÔNG TIN TỪ CHÚNG TÔI KHÔNG</h2>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <br> </br>
+            <div class="container">
+                <div class="row">
+		            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
+            <!-- Begin fluid width widget -->
+                    <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-envelope"></span>  Đăng Ký Thông Tin
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <form action="/sub" method="POST">
+                                <div class="form-group">
+                                    <label for="firstname" class="hidden">FisrtName(Họ)</label>
+                                    <input type="name" class="form-control" name="firstname" id="firstName" placeholder="firstname: Trần Thị, Phan Đăng,...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname" class="hidden">LastName (Tên)</label>
+                                    <input type="name" class="form-control" name="lastname" id="lastName" placeholder="lastname: Lan, Khoa, Huỳnh,...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="hidden">Email address</label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email: asd@example.com">
+                                </div>
+                                <input type="submit" class="btn btn-default btn-block btn-success" value="Submit"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+            <!-- End fluid width widget -->
+                    </div>
+                </div>
+            </div>
+   </div>
+
+
+    <!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+    <script type="text/javascript" src="../../public_1/js/jquery.flexslider-min.js"></script>
+    <!--
+	<script src="js/froogaloop.js"></script>
+	<script src="js/jquery.fitvid.js"></script>
+-->
+    <script type="text/javascript" src="js/templatemo-script.js"></script> <!-- Templatemo Script -->
+    <script>
+        // HTML document is loaded. DOM is ready.
+        $(function () {
+
+            $('#hotelCarTabs a').click(function (e) {
+                e.preventDefault()
+                $(this).tab('show')
+            })
+
+            $('.date').datetimepicker({
+                format: 'MM/DD/YYYY'
+            });
+            $('.date-time').datetimepicker();
+
+            // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+            $('a[href*=#]:not([href=#])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+
+        // Load Flexslider when everything is loaded.
+        $(window).load(function () {
+            //	For images only
+            $('.flexslider').flexslider({
+                controlNav: false
+            });
+
+
+        });
+    </script>
+</body>
+{{/if}}

@@ -1,0 +1,35 @@
+<style>
+.chinhfont
+{
+    margin-top: 5%;
+    text-align: center;
+}
+</style>
+
+
+<div class="header" id="drop">
+  {{>home/header}}
+</div>
+<h2 class="chinhfont">Chọn Phương thức thanh toán</h2>
+<div class="chinhfont">
+
+                          {{!-- <form action="/pay" method="post" >
+                          <img src="../../picture/paypal.png" height="200"
+                class="d-inline-block align-top" alt="mdb logo" > --}}
+                 <form action="/pay" method="POST" >
+    {{!-- <input type="submit" value="Checkout" class="button" ><img src="../../picture/paypal.png"> --}}
+    <button type="submit"><img src="../../picture/paypal.png" height="200"></button>
+</form> 
+
+                {{!-- </form> 
+<a class="navbar-brand" href="/"><img src="../../picture/vnpay.png" height="200"
+                class="d-inline-block align-top" alt="mdb logo"></a>
+                 <form action="/create_payment_url" method="POST" >
+    <input type="submit" value="Checkout" class="button">
+</div> --}}
+<form action="/create_payment_url" method="POST" >
+    {{!-- <input type="submit" value="Checkout" class="button" ><img src="../../picture/paypal.png"> --}}
+    <button type="submit"><img src="../../picture/vnpay.png" height="200"></button>
+</form> 
+
+

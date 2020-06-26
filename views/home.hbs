@@ -1,0 +1,54 @@
+<!--header -->
+
+<div class="header" id="drop">
+    {{>home/header}}
+</div>
+<!-- /header -->
+<link rel="stylesheet" type="text/css" href="../../assets/css/index.css">
+<!--  body -->
+<div id="usezan-v7">
+    <link rel="stylesheet" href="../../assets/css/swiper.css">
+    <link rel="stylesheet" href="../../assets/css/animate.min.css">
+    <script src="../../assets/js/swiper.min.js"></script>
+    <script src="../../assets/js/swiper.animate1.0.2.min.js"></script>
+    {{#if messageError}}
+    <div class="alert alert-danger" role="alert">
+        {{messageError}}
+    </div>
+    {{/if}} 
+    {{#if messageOK}}
+    <div class="alert alert-success" role="alert">
+        {{messageOK}}
+    </div>
+    {{/if}}
+      {{>home/content}}
+    <!-- footer -->
+    <i class="footer-bor" style="background:#acacac;opacity:.1;"></i>
+    <div id="footer" class="footer wow slideInUp backcolor back-footer animated"
+        style="background: rgb(236, 179, 90); visibility: visible; animation-name: slideInUp;">
+        {{>home/bottom}}
+    </div>
+    <!-- /footer -->
+    <script type="text/javascript">
+        var qq_left = "3",
+            qq_topbottom = 50;
+        $(".kefu_q3 .default").on("click", function () {
+            $(this).animate({
+                "right": -120 + '%'
+            }, 100);
+            $(".default-hide").animate({
+                "margin-right": 0
+            }, 300);
+        })
+        $(".colse").on("click", function () {
+            $(".default-hide").animate({
+                "margin-right": -120 + '%'
+            }, 100);
+            $(".kefu_q3 .default").animate({
+                "right": qq_left + 'px',
+                "bottom": qq_topbottom + 'px'
+            }, 300);
+        })
+    </script>
+</div>
+<!--  /body -->

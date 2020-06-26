@@ -1,0 +1,232 @@
+
+ <body class="tm-gray-bg">
+	  {{!-- {{{body}}}	 --}}
+	  <!-- Banner -->
+<section class="tm-banner">
+    <!-- Flexslider -->
+    <div class="flexslider flexslider-banner">
+        <ul class="slides">
+            <li>
+                <div class="tm-banner-inner">
+                    <h1 class="tm-banner-title">Find <span class="tm-yellow-text">The Best</span> Place</h1>
+                    <p class="tm-banner-subtitle">For Your Learning</p>
+                    <a href="#more" class="tm-banner-link">Learn More</a>
+                </div>
+                <img src="../../public_1/img/banner-1.jpg" alt="Image" />
+            </li>
+            <li>
+                <div class="tm-banner-inner">
+                    <h1 class="tm-banner-title">Fast <span class="tm-yellow-text">And</span> Convenient</h1>
+                    <p class="tm-banner-subtitle">Study Everywhere</p>
+                    <a href="#more" class="tm-banner-link">Learn More</a>
+                </div>
+                <img src="../../public_1/img/banner-2.jpg" alt="Image" />
+            </li>
+            <li>
+                <div class="tm-banner-inner">
+                    <h1 class="tm-banner-title">with  <span class="tm-yellow-text">many</span> experts</h1>
+                    <p class="tm-banner-subtitle">experienced</p>
+                    <a href="#more" class="tm-banner-link">Learn More</a>
+                </div>
+                <img src="../../public_1/img/banner-3.jpg" alt="Image" />
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- gray bg -->
+<section class="container tm-home-section-1" id="more">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
+                <img src="../../public_1/img/index-01.jpg" alt="image" class="img-responsive">
+                <a href="#">
+                    <div class="tm-green-gradient-bg tm-city-price-container">
+                        <span>Adobe Photoshop</span>
+                        <span>1200000 VND</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
+                <img src="../../public_1/img/index-02.jpg" alt="image" class="img-responsive">
+                <a href="#">
+                    <div class="tm-green-gradient-bg tm-city-price-container">
+                        <span>Adobe Illustrator</span>
+                        <span>2100000 VND</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
+                <img src="../../public_1/img/index-03.jpg" alt="image" class="img-responsive">
+                <a href="#">
+                    <div class="tm-red-gradient-bg tm-city-price-container">
+                        <span>Adobe Premiere</span>
+                        <span>2300000 VND</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-margin-top">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <hr>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h2 class="tm-section-title">Các khóa học phổ biến</h2>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {{#each ListProd}}
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+                <div class="tm-home-box-2">
+                    <img src="../../public_1/sp/{{this.ProID}}/1.jpg" alt="image" class="img-responsive">
+                    <h3 style="color:cornflowerblue ; font-size: 20px; font-weight:bold">{{this.ProName}}</h3> 
+                    {{!-- font-size: 20px; --}}
+                    <div>{{this.TinyDes}}</div>
+                    <p class="tm-date">28 March 2016</p>
+                    <div class="tm-home-box-2-container">
+                        <a href="#" class="tm-home-box-2-link"><i
+                                class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+                        <a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">{{this.Price}} VND</span></a>
+                        <a href="#" class="tm-home-box-2-link"><i
+                                class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                {{!-- <p class="home-description">Holiday is free Bootstrap v3.3.5 responsive template for tour and travel
+                    websites. You can download and use this layout for any purpose. You do not need to provide a credit
+                    link to us. If you have any question, feel free to <a href="http://www.facebook.com/templatemo"
+                        target="_parent">contact us</a>. Credit goes to <a rel="nofollow" href="http://unsplash.com"
+                        target="_parent">Unspash</a> for images used in this template.</p> --}}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- white bg -->
+<section class="tm-white-bg section-padding-bottom">
+    <div class="container">
+        <div class="col-lg-12 pdm-No">
+            <div class="unica-reason">
+                <div class="tm-section-header">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <hr>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <h2 class="tm-section-title">Tại sao bạn nên học cùng chúng tôi</h2>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <hr>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 pdm-No">
+                    <div class="reason-4">
+                        <div class="img-reason"><img class="img-responsive lazy" alt="" src="../../public_1/img/unica1.png"
+                                style=""></div>
+                        <div style="font-size: 20px;"> Học trực tuyến</div>
+                            <span>mọi lúc, mọi nơi</span>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 pdm-No">
+                    <div class="reason-4">
+                        <div class="img-reason"><img class="img-responsive lazy" alt="" src="../../public_1/img/unica2.png"
+                                style=""></div>
+                        <div style="font-size: 20px;">Hoàn tiền</div>
+                            <span>nếu không hài lòng</span>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 pdm-No">
+                    <div class="reason-4">
+                        <div class="img-reason"><img class="img-responsive lazy" alt="" src="../../public_1/img/unica3.png"
+                                style=""></div>
+                        <div style="font-size: 20px;"> Thanh toán 1 lần</div>
+                            <span style="text-align: center;">học mãi mãi</span>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 pdm-No">
+                    <div class="reason-4">
+                        <div class="img-reason"><img class="img-responsive lazy" alt="" src="../../public_1/img/unica4.png"
+                                style=""></div>
+                        <div style="font-size: 20px;"> Giao miễn phí</div>
+                            <span style="text-align: center;">khóa học tới tận nhà</span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+	<script type="text/javascript" src="../../public_1/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="../../public_1/js/moment.js"></script>							<!-- moment.js -->
+	<script type="text/javascript" src="../../public_1/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="../../public_1/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script type="text/javascript" src="../../public_1/js/jquery.flexslider-min.js"></script>
+<!--
+	<script src="js/froogaloop.js"></script>
+	<script src="js/jquery.fitvid.js"></script>
+-->
+   	<script type="text/javascript" src="js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script>
+		// HTML document is loaded. DOM is ready.
+		$(function() {
+
+			$('#hotelCarTabs a').click(function (e) {
+			  e.preventDefault()
+			  $(this).tab('show')
+			})
+
+        	$('.date').datetimepicker({
+            	format: 'MM/DD/YYYY'
+            });
+            $('.date-time').datetimepicker();
+
+			// https://css-tricks.com/snippets/jquery/smooth-scrolling/
+		  	$('a[href*=#]:not([href=#])').click(function() {
+			    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			      var target = $(this.hash);
+			      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			      if (target.length) {
+			        $('html,body').animate({
+			          scrollTop: target.offset().top
+			        }, 1000);
+			        return false;
+			      }
+			    }
+		  	});
+		});
+		
+		// Load Flexslider when everything is loaded.
+		$(window).load(function() {	  		
+
+
+
+			  
+
+//	For images only
+		    $('.flexslider').flexslider({
+			    controlNav: false
+		    });
+
+
+	  	});
+	</script>
+ </body>

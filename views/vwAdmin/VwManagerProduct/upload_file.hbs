@@ -1,0 +1,78 @@
+<header>
+    <!-- Navbar -->
+    {{>home/header}}
+</header>
+<main>
+    <div class="swiper-slide swiper-lazy swiper-lazy-loaded swiper-slide-active"
+                        style="height:800px;
+                        background-image: url(&quot;../../images/2-1p313104h0534.jpg&quot);
+                        background-repeat: no-repeat;
+                        background-attachment: fixed;
+                        display: flex; justify-content: center;">
+        <div style="width: 50%;">
+            <form action="/admin/uploadimage", method="POST", enctype = "multipart/form-data">
+                <div class="card">
+                    <!--Header-->
+                    <div class="header pt-3 peach-gradient">
+                        <div class="row d-flex justify-content-center">
+                            <h3 class="white-text font-weight-bold">UPLOAD PICTURES</h3>
+                        </div>
+                    </div>
+                    <div class="card-body mx-1 mt-1">
+                    <!--Body-->
+                    <div class="md-form">
+                        <div class="file-field">
+                            <div class="btn btn-primary btn-sm float-left">
+                                <span>Choose files</span>
+                                <input type="file" name="file_picture" multiple>
+                            </div>
+                                <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+                    <div class="row d-flex mb-4">
+                        <!--Grid column-->
+                        <div class="col-md-1 col-md-7 d-flex  ml-auto">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-grey btn-rounded z-depth-1a waves-effect waves-light">Send</button>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<footer>
+    <i class="footer-bor" style="background:#acacac;opacity:.1;"></i>
+    <div id="footer" class="footer wow slideInUp backcolor back-footer animated"
+        style="background: rgb(236, 179, 90); visibility: visible; animation-name: slideInUp;">
+        {{>home/bottom}}
+    </div>
+    <!-- /footer -->
+    <script type="text/javascript">
+        var qq_left = "3",
+            qq_topbottom = 50;
+        $(".kefu_q3 .default").on("click", function () {
+            $(this).animate({
+                "right": -120 + '%'
+            }, 100);
+            $(".default-hide").animate({
+                "margin-right": 0
+            }, 300);
+        })
+        $(".colse").on("click", function () {
+            $(".default-hide").animate({
+                "margin-right": -120 + '%'
+            }, 100);
+            $(".kefu_q3 .default").animate({
+                "right": qq_left + 'px',
+                "bottom": qq_topbottom + 'px'
+            }, 300);
+        })
+    </script>   
+</footer>

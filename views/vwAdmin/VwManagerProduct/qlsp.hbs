@@ -1,0 +1,78 @@
+<div class="container pt-5 pb-5">
+    <div class="row text-center">
+
+    </div>
+    <div class="row">
+       <div class="container pt-5 pb-5">
+    <div class="row text-center">
+        <h2>
+            {{title}}
+        </h2>
+    </div>
+    <div class="row">
+        {{#if this.empty}}
+            <div class="card-body">
+                <p class="card-text">
+                    Không có dữ liệu.
+                </p>
+            </div>
+        {{else}}
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">ID</th>
+                        <th scope="col" class="text-center">Hình ảnh</th>
+                        <th scope="col" class="">Tên sản phẩm</th>
+                        <th scope="col" class="">Danh mục</th>
+                        <th scope="col" class="text-center">Giá</th>
+                        <th><form method="GET" action="/admin/Addproduct">
+                                <button name="products" class="btn btn-sm btn-danger ">
+                                   Thêm Sản Phẩm
+                                </button>
+                                </form></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each products}}
+                        <tr class="product" data-id="{{ProID}}">
+                            <th scope="row" class="text-center">{{ProID}}</th>
+                            <td class="text-center">{{num_of_products}}</td>
+                            <td>{{ProName}}</td>
+                            <td>{{CatName}}</td>
+                            <td class="text-center">{{Price}}</td>
+                            <td class="text-right">
+                                <form method="GET" onclick="comtet({{ProID}})">
+                                <button name="products" class="btn btn-sm btn-danger ">
+                                    <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                                </button>
+                                </form>
+                                <form method="GET" action="/admin/qlsp/edit/{{ProID}}" class="text-left">
+                                <button name="products" class="btn btn-sm btn-default">
+                                    <i class="far fa-edit"></i>
+                                </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{/if}}
+    </div>
+</div>
+    </div>
+</div>
+<script>
+  function comtet(id)
+  {
+    var result=confirm("Bạn có thực sự muốn xóa?");
+    if(result)
+    {
+      window.location = `/admin/qlsp/delete/` + id;
+            
+    }
+    else{
+       window.location = `/admin/qlsp`;
+    }
+  }
+  
+</script>

@@ -1,0 +1,179 @@
+<style type="text/css">
+    .bs-example {
+        font-family: sans-serif;
+        position: relative;
+        margin: 50px;
+    }
+
+    .typeahead,
+    .tt-query,
+    .tt-hint {
+        border: 1px solid #CCCCCC;
+        border-radius: 25px;
+        font-size: 18px;
+        height: 40px;
+        line-height: 13px;
+        outline: medium none;
+        padding: 8px 15px;
+        width: 396px;
+    }
+
+    .typeahead {
+        background-color: #FFFFFF;
+    }
+
+    .typeahead:focus {
+        border: 1px solid #0097CF;
+    }
+
+    .tt-query {
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    }
+
+    .tt-hint {
+        color: #999999;
+    }
+
+    .tt-dropdown-menu {
+        background-color: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        margin-top: 12px;
+        padding: 8px 0;
+        width: 422px;
+    }
+
+    .tt-suggestion {
+        font-size: 24px;
+        line-height: 24px;
+        padding: 3px 20px;
+    }
+
+    .tt-suggestion.tt-is-under-cursor {
+        background-color: #0097CF;
+        color: #FFFFFF;
+    }
+
+    .tt-suggestion p {
+        margin: 0;
+    }
+    #chinhcart{
+        margin-top:10px;
+        margin-left:20px;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark orange lighten-1 fixed-top scrolling-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img src="../../../picture/logo.png" height="30"
+                class="d-inline-block align-top" alt="mdb logo"></a>
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+            aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class=" collapse navbar-collapse" id=" navbarSupportedContent" style="margin-left: 140px">
+            <form class="form-inline mr-auto w-100" method="post" action="/">
+                <input class=" typeahead" type="text" placeholder="Search" aria-label="Search" name="typeahead" autocomplete="off" spellcheck="false">
+                <button class="btn warning-color btn-rounded btn-sm my-0 edit_4" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+            <ul class="navbar-nav ml-auto edit_1">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Trang chủ
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown multi-level-dropdown ">
+                    <a {{!onclick="getCategories()"}} id="menu" data-toggle="dropdown"
+                        class="nav-link dropdown-toggle w-100">Danh mục</a>
+                    <ul
+                        class="dropdown-menu dropdown-menu-right dropdown-warning rounded-3 white-color border-0 z-depth-1">
+                        <li class="dropdown-item p-0">
+                            <a href="/cat/1/products" class="text-black w-100 p-0 pl-2 mt-1 edit_2">Khóa học Tiếng Anh</a>
+                        </li>
+                        <li class="dropdown-item dropdown-submenu p-0 ">
+                            <a {{!onclick="getCatByTech()"}} data-toggle="dropdown"
+                                class="dropdown-toggle text-black w-100 p-0 pl-2 mt-1 edit_2">Khóa học khác</a>
+                            <ul
+                                class="dropdown-menu dropdown-menu-right rounded-3  white-color border-0 z-depth-1 r-100 ">
+                                <li class="dropdown-item p-0">
+                                    <a href="/cat/2/products" class="text-black w-100 p-0 pl-2 mt-1 edit_3">Khóa học lập trình</a>
+                                </li>
+                                <li class="dropdown-item p-0">
+                                    <a href="/cat/3/products" class="text-black w-100 p-0 pl-2 mt-1 edit_3">Khóa Học Giao Tiếp
+                                    </a>
+                                </li>
+                                <li class="dropdown-item p-0">
+                                    <a href="/cat/4/products" class="text-black w-100 p-0 pl-2 mt-1 edit_3">Khóa học Bán Hàng</a>
+                                </li>
+                                <li class="dropdown-item p-0">
+                                    <a href="/cat/5/products" class="text-black w-100 p-0 pl-2 mt-1 edit_3">Khóa Học Thiết Kế </a>
+                                </li>
+                                <li class="dropdown-item p-0">
+                                    <a href="/cat/6/products" class="text-black w-100 p-0 pl-2 mt-1 edit_3">Phong Cách Sống </a>
+                                </li>
+                                <li class="dropdown-item p-0">
+                                    <a href="/cat/7/products" class="text-black w-100 p-0 pl-2 mt-1 edit_3">Một số sản phẩm khác </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <form id="frmLogout" method="post" action="/account/logout"></form>
+                {{#if isAuthenticated}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i>Hi, <b>{{authUser.f_Name}} </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-info"
+                            aria-labelledby="navbarDropdownMenuLink-4">
+                            <a class="dropdown-item" href="/account/profile"><i class="fas fa-user-circle pr-2"></i>Tài
+                                khoản</a>
+                               
+                                   <a class="dropdown-item" href="/admin"><i class="fas fa-toolbox pr-2"></i>Quản lý</a>
+             
+                            <a class="dropdown-item" href="/account/viewReview"><i class="fas fa-grin-beam pr-2"></i>Xem đánh giá</a>
+                            <a class="dropdown-item" href="/account/changePassword"><i class="fas fa-lock pr-2"></i>Đổi
+                                mật khẩu</a>
+                            <a class="dropdown-item" href="javascript: $('#frmLogout').submit();"><i
+                                    class="fas fa-sign-out-alt pr-2"></i>Đăng xuất</a>
+                        </div>
+                    </li>
+                    <div class="row">
+    <div class="col-xs-4">
+    </div>
+    <div class="col-xs-8">
+        <div >
+            <a  role="button" href="/cart" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-shopping-cart" aria-hidden="true" id="chinhcart"></i> Cart
+            </a>
+           
+        </div>
+    </div>
+</div>
+                {{else}}
+                    <!-- Login / register -->
+                    <a id="navbar-static-signin" href='account/login' alt="Login"
+                        class="text-info align-self-center ml-2 auth-modal-toggle waves-effect waves-light"
+                        data-auth-modal-tab="sign-up"><strong><i class="fas fa-sign-in-alt pr-1"></i>Login</strong></a>
+                    <a id="navbar-static-login" href='account/register' alt="Register"
+                        class="btn peach-gradient btn-rounded btn-sm waves-effect waves-light auth-modal-toggle edit_5">Register</a>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/typeahead.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input.typeahead').typeahead({
+            name: 'countries',
+            remote: 'http://localhost:3000/search?key=%QUERY',
+            limit: 10
+        });
+    });
+</script>

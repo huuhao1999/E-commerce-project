@@ -1,0 +1,87 @@
+<div class="container pt-5 pb-5">
+    <div class="row text-center">
+        <h2>
+            Quản Lí Khách Hàng
+        </h2>
+    </div>
+    <div class="row">
+       <div class="row d-flex justify-content-center">
+    <!-- Table with panel -->
+    <div class="card card-cascade narrower">
+      <!--Card image-->
+      <div
+        class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-center align-items-center">
+        <a href="" class="white-text mx-3">DANH SÁCH USER</a>
+      </div>
+      <!--/Card image-->
+      <div class="px-4">
+        {{#if this.emptyBuyer}}
+          <div class="card-body">
+            <p class="card-text">
+              Không có dữ liệu.
+            </p>
+          </div>
+        {{else}}
+          <div class="table-wrapper">
+            <!--Table-->
+            <table class="table table-hover mb-0">
+              <!--Table head-->
+              <thead>
+                <tr>
+                  <th class="th-lg">
+                    <a>ID</a>
+                  </th>
+                  <th class="th-lg">
+                    <a href="">Username</a>
+                  </th>
+                  <th class="th-lg">
+                    <a href="">Họ tên </a>
+                  </th>
+                  <th class="th-lg">
+                    <a href="">Email </a>
+                  </th>
+                  <th class="th-lg">
+                    <a href="">Số điện thoại</a>
+                  </th>
+
+                  <th class="th-lg text-center">
+                    <a href="">Quản lý</a>
+                  </th>
+                </tr>
+              </thead>
+              <!--Table head-->
+              <!--Table body-->
+              <tbody class="bidders">
+                {{#each this.buyer}}
+                  <tr id={{id}} class="bidder" data-id="{{id}}">
+                    <td>{{id}}</td>
+                    <td>{{f_Username}}</td>
+                    <td>{{f_Name}}</td>
+                    <td>{{f_Email}}</td>
+                    <td>{{f_phone}}</td>
+                   
+                    <td class="text-center p-0 d-flex justify-content-center">
+                      <form action="/admin/users/{{id}}">
+                        <button type="submit" class="btn btn-outline-white btn-rounded btn-sm px-2 light-blue accent-3">
+                          <i class="fas fa-info-circle fa-lg"></i>
+                        </button>
+                      </form>
+                      <form method="POST" action="/admin/qlkh/delete/{{id}}">
+                      <button name="users" 
+                        class="btn btn-outline-white btn-rounded btn-sm px-2 deep-orange darken-4 ">
+                        <i class="far fa-trash-alt fa-lg"></i>
+                      </button>
+                      </form>
+                    </td>
+                  </tr>
+                {{/each}}
+              </tbody>
+              <!--Table body-->
+            </table>
+            <!--Table-->
+          </div>
+        {{/if}}
+      </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+ <div class="container-fluid">
+                        <h1 class="mt-4">Thống kê</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Charts</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-header"><i class="fas fa-chart-area mr-1"></i>Weekly Income Line Chart</div>
+                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"></canvas>
+                            <script>
+                                        var ctx = document.getElementById("myAreaChart");
+                                        var myLineChart = new Chart(ctx, {
+                                        type: 'line',
+                                        data: {
+                                            labels: ["Last 5 weeks","Last 4 weeks","Last 3 weeks","Last 2 weeks","Last week","This Week"],
+                                            datasets: [{
+                                            label: "Sessions",
+                                            lineTension: 0.3,
+                                            backgroundColor: "rgba(2,117,216,0.2)",
+                                            borderColor: "rgba(2,117,216,1)",
+                                            pointRadius: 5,
+                                            pointBackgroundColor: "rgba(2,117,216,1)",
+                                            pointBorderColor: "rgba(255,255,255,0.8)",
+                                            pointHoverRadius: 5,
+                                            pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                                            pointHitRadius: 50,
+                                            pointBorderWidth: 2,
+                                            data: {{WeekDatas}},
+                                            }],
+                                        },
+                                        });
+                            </script>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card mb-4">
+                                    <div class="card-header"><i class="fas fa-chart-bar mr-1"></i>Monthly Income Bar Chart</div>
+                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas> 
+                                    <script>
+                                                var ctx = document.getElementById("myBarChart");
+                                                var myLineChart = new Chart(ctx, {
+                                                type: 'bar',
+                                                data: {
+                                                    labels: {{{Monthss}}},
+                                                    datasets: [{
+                                                    label: "Revenue",
+                                                    backgroundColor: "rgba(2,117,216,1)",
+                                                    borderColor: "rgba(2,117,216,1)",
+                                                    data: {{Datas}},
+                                                    }],
+                                                },
+                                                });
+                                    </script>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card mb-4">
+                                    <div class="card-header"><i class="fas fa-chart-pie mr-1"></i>Category Pie Chart</div>
+                                    <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
+                                    <script>
+                                            var ctx = document.getElementById("myPieChart");
+                                            var myPieChart = new Chart(ctx, {
+                                                type: 'pie',
+                                                data: {
+                                                    labels: {{{Category}}},
+                                                    datasets: [{
+                                                    data: {{CategoryTotal}},
+                                                    backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745','#00FFFF','#8B008B'],
+                                                    }],
+                                                },
+                                            });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>

@@ -1,0 +1,190 @@
+<style>
+    .button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #fc6f7a;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+   margin-right: 20px;
+   margin-bottom: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.button:hover,
+.button:focus {
+    background: #f50303;
+}
+
+.button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+.button:active {
+    transform: scale(0.99);
+}
+.empty{
+    margin-top:10px ;
+    margin-left:30px;
+}
+.titlecart
+{
+    margin-top:30px ;
+    margin-left:30px;
+}
+.footer {
+    padding: 50px 0 20px 0;
+    background-color: #4f4935;
+    color: #878c94;
+}
+.footer .title{text-align: left;color:#fff;font-size:25px;}
+
+
+.footer .social-icon{padding:0px;margin:0px;}
+.footer .social-icon a{display:inline-block;color:#fff;font-size:25px;padding:5px;}
+.footer .acount-icon a{display:block;color:#fff;font-size:18px;padding:5px;text-decoration:none;}
+.footer .acount-icon .fa{margin-right:25px;}
+
+
+.footer .category a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 20px;
+    margin: 1px;
+    border-radius:4px;
+    margin-top: 6px;
+    background-color: black;
+    border: solid 1px #fff;
+}
+
+.footer .payment{margin:0px;padding:0px;list-style-type:none}
+.footer .payment li{list-style-type:none}
+.footer .payment li a {
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    float: left;
+    font-size: 25px;
+    padding: 10px 10px;
+}
+</style>
+<div class="header" id="drop">
+    {{>home/header}}
+</div>
+<h1 class="titlecart">Cart</h1>
+{{# if products }}
+    <div class="cart page">
+        <ul class="list-group">
+            {{# each products }}
+            <li class="list-group-item clearfix">
+                
+                                    <img src="../../../sp/{{this.item.id}}/1.jpg" class="img-fluid" alt="Image" height="170" width="170">
+                                    <div class="mask flex-center waves-effect waves-light ">
+                                        <p class="card-body text-white  rgba-black-strong p-2 align-self-end">
+                                            {{ProName}}</p>
+                                    </div>
+                            
+                <div class="col-xs-5">
+                    <strong>{{ this.item.Proname }}</strong><br/>
+                    <em>{{{this.item.Tiny}}}</em>
+                </div>
+                
+                    
+                
+                <div class="col-xs-3 text-right">
+                    <pre>Số Lượng: {{ this.quantity }}
+                           Tổng: {{ this.price }}</pre>
+                </div>
+                <div class="col-xs-2 text-right">
+                    <a href="/remove/{{this.item.id}}" class="btn btn-default"></i> Remove</a>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="text-right">
+        <form action="/promote-validation" method="post">
+            <input type="text" id="coupon" name="coupon">
+            <input class="btn btn-default" type="submit" value="Add Coupon">
+        </form>
+        <strong>Total: {{ totalPrice }} VND</strong>
+    </div>
+    <hr>
+    <div class="text-right">
+        
+          <form action="/payment" >
+    <input type="submit" value="Checkout" class="button">
+</form> 
+    </div>
+{{ else }}
+<div class="empty">
+    Your shopping cart is empty.
+    </div>
+{{/if}}
+ <footer class="footer">
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-3">
+            <h4 class="title">Sumi</h4>
+            <p>Chúng tôi lấy sự uy tín lên hàng đầu</p>
+            <ul class="social-icon">
+            <a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+            </ul>
+            </div>
+        <div class="col-sm-3">
+            <h4 class="title">My Account</h4>
+            <span class="acount-icon">          
+            <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Wish List</a>
+            <a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> Cart</a>
+            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+            <a href="#"><i class="fa fa-globe" aria-hidden="true"></i> Language</a>           
+          </span>
+            </div>
+        <div class="col-sm-3">
+            <h4 class="title">Category</h4>
+            <div class="category">
+            <a href="#">Lập Trình</a>
+            <a href="#">Giao tiếp</a>
+            <a href="#">Tiếng anh</a>
+            <a href="#">Lối sống</a>
+            <a href="#">Bán hàng</a>
+            <a href="#">teshart</a>
+            <a href="#">top</a>
+            <a href="#">shos</a>
+            <a href="#">glass</a>
+            <a href="#">kit</a>
+            <a href="#"></a>
+            <a href="#"></a>           
+            </div>
+            </div>
+        <div class="col-sm-3">
+            <h4 class="title">Payment Methods</h4>
+            <p>Paypal and Payment Methods</p>
+            <ul class="payment">
+            <li><a href="#"><i class="fa fa-cc-amex" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i></a></li>            
+            <li><a href="#"><i class="fa fa-paypal" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-cc-visa" aria-hidden="true"></i></a></li>
+            </ul>
+            </div>
+        </div>
+        <hr>
+        
+        <div class="row text-center"> © 2020 Made by my company</div>
+        </div>
+        
+        
+    </footer>

@@ -1,0 +1,51 @@
+  <div class="container-fluid">
+                        <h1 class="mt-4">Tables</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Tables</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>.</div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header"><i class="fas fa-table mr-1"></i>DataTable Example</div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>OrderID</th>
+                                                <th>OrderDate</th>
+                                                <th>UserID</th>
+                                                <th>UserName</th>
+                                                <th>Total</th>
+                                                <th>Role</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>OrderID</th>
+                                                <th>OrderDate</th>
+                                                <th>UserID</th>
+                                                <th>UserName</th>
+                                                <th>Total</th>
+                                                <th>Role</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        {{#each order}}
+                                                <tr>
+                                                    <td>{{this.OrderID}}</td>
+                                                    <td>{{this.OrderDate}}</td>
+                                                    <td>{{this.UserID}}</td>
+                                                    <td>{{this.UserName}}</td>
+                                                    <td>{{this.Total}}</td>
+                                                    <td>{{this.Users_Role}}</td>
+                                               </tr>
+                                        {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>

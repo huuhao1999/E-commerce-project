@@ -1,0 +1,243 @@
+<style>
+  #products img {
+    width: 100%;
+  }
+
+  @media(min-width: 960px) {
+    #products .col-md-4 .product-card {
+      width: auto;
+      height: 250px;
+    }
+
+    #products .col-md-4 .well {
+      height: 350px;
+    }
+
+    #products .col-md-4 .view {
+      width: 100%;
+
+    }
+
+    #products .col-md-4 img {
+      width: auto;
+      height: 100%;
+
+    }
+  }
+
+
+  /*------/ Property Single /-----*/
+
+  .gallery-property {
+    margin-bottom: 3rem;
+  }
+
+  .property-price {
+    margin: 0 auto;
+  }
+
+  .property-price .card-header-c {
+    padding: 0;
+  }
+
+  .summary-list {
+    padding-right: 1rem;
+    color: #000000;
+  }
+
+  .summary-list .list {
+    padding: 0;
+    line-height: 2;
+  }
+
+  .summary-list .list span {
+    color: #555555;
+  }
+
+  .property-agent .title-agent {
+    font-weight: 600;
+  }
+
+  .property-agent ul {
+    line-height: 2;
+    color: #000000;
+  }
+
+  .property-agent .socials-a {
+    text-align: center;
+  }
+</style>
+<!--header -->
+<div class="header" id="drop">
+  {{>home/header}}
+</div>
+<!-- /header -->
+<link rel="stylesheet" type="text/css" href="../../assets/css/index.css">
+<!--  body -->
+<div id="usezan-v7">
+  <link rel="stylesheet" href="../../assets/css/swiper.css">
+  <link rel="stylesheet" href="../../assets/css/animate.min.css">
+  <script src="../../assets/js/swiper.min.js"></script>
+  <script src="../../assets/js/swiper.animate1.0.2.min.js"></script>
+  <div class="container-fluid text-lg p-lg-5">
+    <div class="row py-2">
+      <div class="col-md-3 pl-5">
+        <div class="card h-100 shadow">
+          {{> home/side }}
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="card h-100 shadow">
+          <div class="card-header text-white amber darken-1 d-flex justify-content-between">
+            <h6>Danh sách sản phẩm</h6>
+            <div class="dropdown">
+              <button class="btn btn-primary btn-sm deep-blue-gradient dropdown-toggle m-0" type="button"
+                id="dropdownMenuMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sắp xếp
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuMenu">
+                <button class="dropdown-item  text-dark" type="button">Giá tăng dần<i
+                    class="fas fa-arrow-up pl-2"></i></button>
+                <button class="dropdown-item  text-dark" type="button">Thời gian giảm<i
+                    class="fas fa-arrow-down pl-2"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="container text-black-50">
+                <div id="products" class="row text-dark d-flex justify-content-center">
+                  {{#each products}}
+                    <div
+                      class="product-card text-white col-md-4 m-2 pt-3 px-1 d-flex justify-content-center wow slideInUp card card-ecommerce">
+                      <div id={{ProID}} class="well text-center d-flex flex-column justify-content-center ">
+                        <!--Card view-->
+                        <div onclick="getDetailProduct('{{ProID}}')"
+                          class="view overlay zoom d-flex justify-content-center">
+                          <img src="../../../sp/{{ProID}}/1.jpg" class="img-fluid" alt="zoom">
+                          <div class="mask flex-center waves-effect waves-light ">
+                            <p class="card-body text-white  rgba-black-strong p-2 align-self-end">
+                              {{ProName}}</p>
+                          </div>
+                        </div>
+                        <!-- Card time -->
+                        <div class="rounded-top mdb-color lighten-3 text-center mt-3">
+                          <ul class="list-unstyled list-inline font-small p-1 m-0">
+                            <ul class="list-unstyled list-inline font-small p-1 m-0">
+                              <li class="list-inline-item pr-2 white-text"><i
+                                  class="far fa-clock pr-1"></i>{{TimeFinish}}<i class="fas fa-hourglass-half pr-1"></i>
+                              </li>
+                            </ul>
+                          </ul>
+                        </div>
+                        <!--Card content-->
+                        <div class="orange text-white rounded-bottom m-0">
+                          <ul class="list-unstyled list-inline font-small p-1 m-0">
+                            <li>
+                              <ul class="list-unstyled list-inline font-small p-1 m-0 d-flex justify-content-between">
+                                <li class="list-inline-item pr-2 red-text font-weight-bold"><i
+                                    class="fas fa-hand-holding-usd pr-1"></i><strong>{{Price}}</strong>
+                                </li>
+                                <li class="list-inline-item pr-2 white-text"><i
+                                    class="fas fa-user-clock pr-1"></i>{{UserName}}
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <ul class="list-unstyled list-inline font-small p-1 m-0 d-flex justify-content-between">
+                                <li class="list-inline-item pr-2 white-text"><i
+                                    class="fas fa-dollar-sign pr-1"></i>{{PriceToBuy}}
+                                </li>
+                                <li class="list-inline-item pr-2 white-text"><i class="fas fa-hammer pr-2"></i>{{Voted}}
+                                </li>
+                                <li>
+                                  <span class="card-footer float-right text-white p-0 mr-2"><a class="heart-icon"
+                                      data-toggle="tooltip" data-placement="top" title="Added to Wishlist"
+                                      data-id={{ProID}} data-name={{ProName}} data-price={{Price}}><i
+                                        class="fas fa-heart"></i></a></span>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="col-sm-12">
+                <nav>
+                  <ul class="pagination wow slideInUp d-flex justify-content-center">
+                    {{#if navs.prev}}
+                      <li class="page-item">
+                        <a class="page-link" href="/cat/{{catId}}/products?page={{prev_value}}">
+                          <i class="fa fa-backward" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    {{else}}
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                          <i class="fa fa-backward" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    {{/if}}
+                    {{#each this.page_numbers}}
+                      {{#if isCurrentPage}}
+                        <li class="page-item active" aria-current="page">
+                          <a class="page-link" href="javascript:;">{{value}} <span class="sr-only">(current)</span></a>
+                        </li>
+                      {{else}}
+                        <li class="page-item">
+                          <a class="page-link" href="/cat/{{catId}}/products?page={{value}}">{{value}}</a>
+                        </li>
+                      {{/if}}
+                    {{/each}}
+                    {{#if navs.next}}
+                      <li class="page-item">
+                        <a class="page-link" href="/cat/{{catId}}/products?page={{navs.next}}">
+                          <i class="fa fa-forward" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    {{else}}
+                      <li class="page-item disabled">
+                        <a class="page-link" href="/cat/{{catId}}/products" tabindex="-1" aria-disabled="true">
+                          <i class="fa fa-forward" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    {{/if}}
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer -->
+  <i class="footer-bor" style="background:#acacac;opacity:.1;"></i>
+  <div id="footer" class="footer wow slideInUp backcolor back-footer animated"
+    style="background: rgb(236, 179, 90); visibility: visible; animation-name: slideInUp;">
+    {{>home/bottom}}
+  </div>
+  <!-- /footer -->
+</div>
+<!--  /body -->
+<!-- <script src="../../assets/js/online.js"></script> -->
+<!-- SCRIPTS -->
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="../../assets/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="../../assets/js/mdb.min.js"></script>
+<script type="text/javascript">
+  function getDetailProduct(id) {
+    window.location = `products/` + id;
+    return false;
+  }
+
+
+</script>

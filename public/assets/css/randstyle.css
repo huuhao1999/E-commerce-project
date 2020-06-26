@@ -1,0 +1,23 @@
+﻿﻿/* 织梦58（dede58.com）做最好的织梦整站模板下载网站 */
+@charset "utf-8";
+a.more:before {
+	background: #ecb35a;
+	border-color: #ecb35a
+}
+#pages a.cur, .casev2 .case-index .hd li.on, .casev2 .case-index .hd li.on:after, .contact_ny ul li:hover, .teamv2 .hd li.on, .teamv2 .hd li.on:after, a.more:hover {
+	border-color: #ecb35a
+}
+.contact_ny ul li:hover, .fuwu-list ul li:hover h5, .fuwu-list ul li:hover p, .links p a:hover, .nav ul li .childer a:hover, .pro-remmon ul li a.jia, .pro_0_list ul li a.jia, .productv2 ul.workul li a.jia, .recru-show .e, .recru-show h5, .servicev2 ul li:hover h5, .servicev2 ul li:hover p, .teamv2 ul.temaul li a.jia, .wrongv4a ul li.on .worng-detail h5, .wrongv4a ul li.on .worng-detail h5 span.deta, .wrongv4a ul li:hover .worng-detail h5, .wrongv4a ul li:hover .worng-detail h5 span.deta {
+	color: #ecb35a
+}
+#pages a.cur, .casev2 .case-index .hd li.on:after, .contact-form .form-action input[type=submit], .contactv2 .form-action input[type=submit], .nav ul li .childer, .nav ul li:hover, .nav.nav_num_0 ul li.on, .nav.nav_num_1 ul li.on, .nav.nav_num_2 ul li.on, .nav.nav_num_3 ul li.on, .newsv2 ul.bd li i.bor2, .pro-remmon ul li i.bor2, .pro_0_list ul li i.bor2, .productv2 ul.workul li i.bor2, .team_div_fm ul.temaul li .dask, .team_div_fm ul.temaul li i.ibor1, .teamv2 .hd li.on:after, .teamv2 ul.temaul li i.bor2, .wrongv4a ul li i.ibor1, .wrongv4a ul li.on .worng-detail h5:before, .wrongv4a ul li:hover .worng-detail h5:before {
+	background: #ecb35a
+}
+.downloadv4a ul li .border_bottom, .downloadv4a ul li .border_left, .downloadv4a ul li .border_right, .downloadv4a ul li .border_top, .downloadv4a ul.bd li .border_bottom, .downloadv4a ul.bd li .border_left, .downloadv4a ul.bd li .border_right, .downloadv4a ul.bd li .border_top, .news_0_list ul li .border_bottom, .news_0_list ul li .border_left, .news_0_list ul li .border_right, .news_0_list ul li .border_top, .partnerpic li .border_bottom, .partnerpic li .border_left, .partnerpic li .border_right, .partnerpic li .border_top, .recru-list ul li .border_bottom, .recru-list ul li .border_left, .recru-list ul li .border_right, .recru-list ul li .border_top, .wrongv4a ul.bd li .border_bottom, .wrongv4a ul.bd li .border_left, .wrongv4a ul.bd li .border_right, .wrongv4a ul.bd li .border_top {
+	position: absolute;
+	background: #ecb35a
+}
+.downloadv4a ul li:hover .download-detail .down-right a.down-ico, .downloadv4a ul.bd li:hover .download-detail .down-right a.down-ico {
+	border-color: #ecb35a;
+	background: #ecb35a
+}

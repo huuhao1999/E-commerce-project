@@ -1,0 +1,47 @@
+<div class="container pt-5 pb-5">
+  <div class="row pb-5 d-flex justify-content-center">
+    <!-- Table with panel -->
+    <div class="card card-cascade narrower">
+      <!--Card image-->
+      <div
+        class="view view-cascade gradient-card-header peach-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-center align-items-center">
+        <a href="" class="white-text mx-3">admin</a>
+      </div>
+      <!--/Card image-->
+      <div class="px-4">
+        {{#if this.emptySeller}}
+          <div class="card-body">
+            <p class="card-text">
+              Không có dữ liệu.
+            </p>
+          </div>
+        {{else}}
+          <div class="table-wrapper">
+            <!--Table-->
+            <table class="table table-hover mb-0">
+              <!--Table head-->
+              <thead>
+                <tr>
+                  <th class="th-lg">
+                    <a>ID</a>
+                  </th>
+                  <th class="th-lg">
+                    <a href="">Username</a>
+                  </th>
+                  <th class="th-lg">
+                    <a href="">Họ tên </a>
+                  </th>
+                  <th class="th-lg">
+                    <a href="">Email </a>
+                  </th>
+                  <th class="th-lg">
+                    <a href="">Số điện thoại</a>
+                  </th>
+
+                </tr>
+              </thead>
+      </div>
+    </div>
+    <!-- Table with panel -->
+  </div>
+</div>
