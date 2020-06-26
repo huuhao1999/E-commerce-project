@@ -12,7 +12,7 @@ const bodyParser = require("body-parser");
 const app = express();
 var cookieParser = require("cookie-parser");
 var flash = require("connect-flash");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
