@@ -30,8 +30,6 @@ This project was made using the follow technologies:
 ## Install
 
 ```sh
-git clone https://github.com/RafaelGoulartB/Nodejs-Ecommerce.git
-cd Nodejs-Ecommerce
 npm install
 ```
 
@@ -41,34 +39,9 @@ npm install
 npm run start
 node index.js
 ```
-## Dev Mode
 
-```sh
-npm run dev
-```
 
 ## Author
 
-👤 **Rafael GoulartB**
+👤 **Nguyễn Hữu Hảo**
 
-* Github: [@RafaelGoulartB](https://github.com/RafaelGoulartB)
-
-
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/RafaelGoulartB/Ecommerce-Quantum/issues).
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-![Project Image](https://github.com/RafaelGoulartB/Ecommerce-Quantum/blob/master/Ecommerce.jpg)
-
-## 📝 License
-
-Copyright © 2019 [Rafael GoulartB](https://github.com/RafaelGoulartB).<br />
-This project is [MIT](https://github.com/RafaelGoulartB/Ecommerce-Quantum/blob/master/LICENSE) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
